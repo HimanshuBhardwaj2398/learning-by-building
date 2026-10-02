@@ -1,0 +1,49 @@
+{
+  "skill_name": "learning-by-building",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to add an HTTP API to this project with FastAPI: an endpoint that takes a question and returns the grounded answer with its citations. But I don't just want it built. I want to learn FastAPI and the fundamentals behind it (API design, dependency injection, how it should fit the existing architecture) by doing. Point me to good free resources, break the feature into steps, and help me implement and learn step by step. I also want to write about what I learn. Let's start.",
+      "expected_output": "The first turn of a new arc. The agent searches the project's docs for what has already been decided about the feature, starts an arc file in status framing, and asks one question about how the endpoint will be used. It sends no syllabus, no reading list, no setup notes, and writes no code.",
+      "files": [],
+      "expectations": [
+        "The reply asks how the feature will be used: what the caller sends, what comes back, and what they see when it goes wrong",
+        "The reply contains no list of steps for the feature and no list of links to read",
+        "The reply contains no setup or dependency instructions",
+        "An arc file exists under docs/learning/arcs/ with status framing, a Next line, and a filled-in section on what the project has already decided",
+        "The arc file contains no solution code",
+        "No implementation or test file was created or changed",
+        "The agent searched the docs for the feature by name instead of reading every design doc in full"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Continue the arc in docs/learning/arcs/2026-10-02-grounded-answer-api.md. Here is how it will be used. 1. Just me for now, from curl and the Swagger page, so I can try the thing without opening Streamlit. Maybe a small web front end later, but not yet, so no end users writing about their own state. 2. Roughly: curl -X POST localhost:8000/ask -H 'Content-Type: application/json' -d '{\"question\": \"What does the Buddha say about restlessness?\"}' 3. Something like {\"answer\": \"... text with [1] [2] markers ...\", \"citations\": [{\"n\": 1, \"sutta\": \"MN 10\", \"title\": \"...\", \"quote\": \"...\"}]}. I haven't thought about what else belongs in there. 4. Empty question: I'd want a clear 4xx that says what is wrong, not a stack trace. If nothing relevant is found, I honestly don't know what should come back.",
+      "expected_output": "The second turn of framing. The agent fills in the arc file from the demo script: two to four concepts and three to seven runnable slices, then shows the steps and asks for an OK. It writes no code.",
+      "files": ["evals/files/arc-framing.md"],
+      "expectations": [
+        "The arc file's demo script holds the developer's own words",
+        "The arc file lists two to four concepts, and each names where the idea already appears in this repo, exactly one resource, and a question the reading should answer",
+        "Every resource link in the arc file appears in the skill's resources.md or was opened during the run",
+        "The arc file lists three to seven steps, and each names something new that can be run by hand",
+        "Step 1 already returns a real answer end to end",
+        "At least one step is marked delegated",
+        "The arc file contains no solution code, and its Next line is up to date",
+        "The reply shows the steps and asks for the developer's OK, with no list of links to read",
+        "No implementation or test file was created or changed"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Make scripts/check_doc_links.py print a one-line summary at the end with how many links it checked and how many were broken. No need to walk me through it, I'm in a hurry. Just ship it with a test.",
+      "expected_output": "A plain shipping request. The agent makes the change itself and verifies it. It does not start an arc or turn the request into a lesson.",
+      "files": [],
+      "expectations": [
+        "No arc file was created under docs/learning/arcs/",
+        "The agent wrote the change itself, leaving no TODO(human) for the developer",
+        "The reply does not ask the developer for a demo script, a prediction or an explanation",
+        "A test for the summary line exists and was run, or the reply says why it could not be run"
+      ]
+    }
+  ]
+}

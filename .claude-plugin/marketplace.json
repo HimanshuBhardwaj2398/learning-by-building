@@ -1,0 +1,15 @@
+{
+  "name": "learning-by-building",
+  "description": "The learning-by-building skill for Claude Code",
+  "owner": {
+    "name": "Himanshu Bhardwaj",
+    "url": "https://github.com/HimanshuBhardwaj2398"
+  },
+  "plugins": [
+    {
+      "name": "learning-by-building",
+      "source": "./",
+      "description": "Build a real feature while learning the ideas behind it."
+    }
+  ]
+}

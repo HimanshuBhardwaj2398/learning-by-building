@@ -1,0 +1,13 @@
+{
+  "name": "learning-by-building",
+  "version": "0.1.0",
+  "description": "Build a real feature while learning the ideas behind it. You write the lines that carry the concept; Claude writes the tests and plumbing, then waits for you.",
+  "author": {
+    "name": "Himanshu Bhardwaj",
+    "url": "https://github.com/HimanshuBhardwaj2398"
+  },
+  "homepage": "https://github.com/HimanshuBhardwaj2398/learning-by-building",
+  "repository": "https://github.com/HimanshuBhardwaj2398/learning-by-building",
+  "license": "MIT",
+  "keywords": ["learning", "teaching", "mentoring", "skills"]
+}

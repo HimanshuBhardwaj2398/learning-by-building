@@ -1,0 +1,5 @@
+# Local build records: the design notes, the test transcripts and a worked
+# example. They carry machine-specific paths, so they stay out of the repository.
+skills/learning-by-building/dev/
+
+.DS_Store
